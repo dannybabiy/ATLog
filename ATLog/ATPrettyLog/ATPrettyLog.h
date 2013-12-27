@@ -6,9 +6,11 @@
 //
 //
 
-#if !__has_feature(objc_arc)
-#error This code needs ARC. Use compiler option -fobjc-arc
-#endif
+// This will fail if ATLog.h is imported in the pch and one of the files in the project doesn't use ARC.
+// ATString.m also has the check, so it should catch improper use.
+//#if !__has_feature(objc_arc)
+//#error This code needs ARC. Use compiler option -fobjc-arc
+//#endif
 
 #define ATPrettyLog(fmt,...) \
 { \

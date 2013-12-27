@@ -9,7 +9,9 @@
 #import "ATString.h"
 #import "ATPrettyLog.h"
 
-#ifdef ATLog_OUTPUT
+#ifndef DEBUG
+#   define ATLog(fmt...)
+#elif defined ATLog_OUTPUT
 #   define ATLog(fmt...) ATLog_OUTPUT(@"%@",ATStringWithFormat(fmt))
 #else
 #   define ATLog(fmt...) ATPrettyLog(@"%@",ATStringWithFormat(fmt))
